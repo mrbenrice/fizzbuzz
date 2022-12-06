@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fizzbuzz</title>
+</head>
+<body>
+    <button onclick="fizzBuzz()">click for fizzing</button>
+    <div class="fizzcontainer"></div>
+</body>
+<script>
+    const fizzcontainer = document.querySelector('.fizzcontainer');
+    function fizzBuzz() {
+        const answer = parseInt(prompt("Enter number: "))
+        for (let i = 1; i <= answer; i++)
+        if (i % 3 == 0 && i % 5 != 0) {
+            const fizz = document.createElement('div');
+            fizz.classList.add('fizzdiv')
+            fizz.textContent = i + ' (fizz)';
+            fizzcontainer.appendChild(fizz);
+        } else if (i % 3 != 0 && i % 5 == 0) {
+            const buzz = document.createElement('div');
+            buzz.classList.add('buzzdiv')
+            buzz.textContent = i + ' (buzz)';
+            fizzcontainer.appendChild(buzz);
+        } else if (i % 3 == 0 && i % 5 == 0) {
+            const fizzbuzz = document.createElement('div');
+            fizzbuzz.classList.add('fizzdiv')
+            fizzbuzz.textContent = i + ' (fizzbuzz)';
+            fizzcontainer.appendChild(fizzbuzz);
+        } else {
+            const num = document.createElement('div');
+            num.classList.add('numdiv');
+            num.textContent = i;
+            fizzcontainer.appendChild(num);
+        }
+
+    }
+</script>
+<style>
+    body {
+        background-color: #FFFDD1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        background-color: lightgreen;
+    }
+    .fizzcontainer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap-reverse;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 90%;
+    }
+
+    .fizzdiv,
+    .buzzdiv,
+    .fizzbuzzdiv,
+    .numdiv {
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 2px;
+        border: 1px solid lightgreen;
+        padding: 2px;
+    }
+</style>
+</html>
